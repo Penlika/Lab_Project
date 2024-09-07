@@ -1,7 +1,7 @@
-// import { Entypo } from "@expo/vector-icons"
 import { useState } from "react"
 import { StyleSheet, TouchableOpacity, Vibration, View} from "react-native"
 import { Text } from "react-native-paper"
+import Entypo from 'react-native-vector-icons/Entypo';
 
 const Calculator=()=>{
     const [darkMode, setDarkMode]= useState(false)
@@ -39,25 +39,25 @@ const Calculator=()=>{
     const handleInput=(buttonPress)=>{
         switch(buttonPress){
             case "+":case "-":case "*":case "/":
-                //Vibration.vibrate(35)
+                Vibration.vibrate(35)
                 setCurrentNumber(currentNumber+buttonPress)
                 break
             case "DEL":
-                //Vibration.vibrate(35)
+                Vibration.vibrate(35)
                 setCurrentNumber(currentNumber.substring(0,(currentNumber.length-1)))
                 break
             case "C":
-                //Vibration.vibrate(35)
+                Vibration.vibrate(35)
                 setCurrentNumber("")
                 setLastNumber("")
                 break
             case "=":
-                //Vibration.vibrate(35)
+                Vibration.vibrate(35)
                 setLastNumber(currentNumber+"=")
                 Calculator()
                 break
             default:
-                //Vibration.vibrate(35)
+                Vibration.vibrate(35)
                 setCurrentNumber(currentNumber+buttonPress)
                 break
         }
@@ -69,7 +69,7 @@ const Calculator=()=>{
                     style={{...myStyle.themeButton,backgroundColor:bgColorThemeButton}}
                     onPress={()=>setDarkMode(!darkMode)}
                 >
-                    {/* <Entypo name={(darkMode)? "lgiht-up":"moon"} size={40} style={{color: colorIcon}}/> */}
+                    <Entypo name={(darkMode)? "light-up":"moon"} size={40} style={{color: colorIcon}}/>
                 </TouchableOpacity>
                 <Text style={{...myStyle.historyText, color:textColorHistory}}>{lastNumber}</Text>
                 <Text style={myStyle.resultText}>{currentNumber}</Text>
